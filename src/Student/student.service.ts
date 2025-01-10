@@ -11,8 +11,9 @@ export class StudentService {
     private studentRepository: Repository<Student>,
   ) {}
 
-  async create(createStudentDto: CreateStudentDto): Promise<Student> {
-    const student = this.studentRepository.create(createStudentDto);
-    return await this.studentRepository.save(student);
+  async getStudents(): Promise<Student[]> {
+    return this.studentRepository.find();
   }
+  
+  
 }
